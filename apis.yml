@@ -77,6 +77,26 @@ apis:
         url: https://docs.figshare.com/
       - type: BaseURL
         url: https://api.figshare.com/v2
+      - type: OpenAPI
+        url: openapi/university-of-adelaide-figshare.yaml
+      - type: JSONSchema
+        url: json-schema/university-of-adelaide-article-schema.json
+      - type: JSONSchema
+        url: json-schema/university-of-adelaide-collection-schema.json
+      - type: JSONStructure
+        url: json-structure/university-of-adelaide-article-structure.json
+      - type: JSONStructure
+        url: json-structure/university-of-adelaide-collection-structure.json
+      - type: Example
+        url: examples/university-of-adelaide-list-articles-example.json
+      - type: Example
+        url: examples/university-of-adelaide-list-collections-example.json
+      - type: Rules
+        url: rules/university-of-adelaide-rules.yml
+      - type: Vocabulary
+        url: vocabulary/university-of-adelaide-vocabulary.yml
+      - type: JSONLD
+        url: json-ld/university-of-adelaide-context.jsonld
 common:
   - type: Website
     url: https://www.adelaide.edu.au/

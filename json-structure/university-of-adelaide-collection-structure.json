@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-adelaide/main/json-structure/university-of-adelaide-collection-structure.json",
+  "name": "FigshareCollection",
+  "type": "object",
+  "description": "JSON Structure for the Figshare Collection object used by the Adelaide Figshare research data API.",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "description": "Collection id"
+    },
+    "title": {
+      "type": "string",
+      "description": "Collection title"
+    },
+    "doi": {
+      "type": "string",
+      "description": "Collection DOI"
+    },
+    "handle": {
+      "type": "string",
+      "description": "Collection Handle"
+    },
+    "url": {
+      "type": "uri",
+      "description": "API endpoint"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+---
+# Spectral ruleset for the University of Adelaide Figshare research data API.
+# Encodes patterns observed in the real Figshare OpenAPI 3.0.3 description.
+formats:
+  - oas3
+rules:
+  uoa-info-contact:
+    description: API info should declare a contact (Figshare Support).
+    severity: warn
+    given: $.info
+    then:
+      field: contact
+      function: truthy
+  uoa-servers-defined:
+    description: A server URL must be defined (api.figshare.com/v2).
+    severity: error
+    given: $
+    then:
+      field: servers
+      function: truthy
+  uoa-article-has-doi:
+    description: Article objects should expose a DOI property.
+    severity: warn
+    given: $.components.schemas.Article.properties
+    then:
+      field: doi
+      function: truthy
+  uoa-article-has-id:
+    description: Article objects must expose an integer id.
+    severity: error
+    given: $.components.schemas.Article.properties.id
+    then:
+      field: type
+      function: pattern
+      functionOptions:
+        match: "integer"
+  uoa-resource-urls-are-uri:
+    description: URL-bearing fields should use url/uri formatting where present.
+    severity: info
+    given: $.components.schemas.Article.properties.url
+    then:
+      field: format
+      function: truthy
+  uoa-operations-have-tags:
+    description: Every operation should be tagged for discoverability.
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy

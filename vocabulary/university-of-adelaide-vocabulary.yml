@@ -1,0 +1,53 @@
+---
+vocabulary:
+  name: University of Adelaide Research Data Vocabulary
+  description: >-
+    Controlled vocabulary for the terms exposed by the University of Adelaide's
+    research and scholarly APIs, drawn from the live Figshare OpenAPI 3.0.3
+    description and the DSpace 7.6.1 institutional repository.
+  version: "1.0.0"
+  terms:
+    - term: Article
+      definition: >-
+        A Figshare research output (dataset, paper, media, software, etc.)
+        identified by an integer id and a DOI.
+      tags: [ figshare, object, research-data ]
+    - term: Collection
+      definition: >-
+        A curated grouping of Figshare articles, identified by id, DOI and handle.
+      tags: [ figshare, object, curation ]
+    - term: Project
+      definition: A Figshare workspace grouping articles and collaborators.
+      tags: [ figshare, object, collaboration ]
+    - term: DOI
+      definition: >-
+        Digital Object Identifier minted for an article or collection,
+        e.g. 10.6084/m9.figshare.1434614.
+      tags: [ identifier, persistent-identifier ]
+    - term: Handle
+      definition: A Handle System persistent identifier for a research object.
+      tags: [ identifier, persistent-identifier ]
+    - term: defined_type
+      definition: >-
+        Integer code classifying the article kind, surfaced as defined_type_name
+        (e.g. media, dataset, figure, software).
+      tags: [ figshare, classification ]
+    - term: Timeline
+      definition: Date events (posted, published, submitted) for a research object.
+      tags: [ figshare, temporal ]
+    - term: Community
+      definition: >-
+        Top-level DSpace organizational unit in the Adelaide Research &
+        Scholarship repository containing collections.
+      tags: [ dspace, repository, structure ]
+    - term: Item
+      definition: A DSpace repository entry (thesis, article) holding metadata and bitstreams.
+      tags: [ dspace, repository, object ]
+    - term: Bitstream
+      definition: A binary file (e.g. PDF) attached to a DSpace item.
+      tags: [ dspace, repository, file ]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting endpoint
+        exposing repository metadata for bulk harvest.
+      tags: [ metadata, harvesting, interoperability ]

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-adelaide/main/json-structure/university-of-adelaide-article-structure.json",
+  "name": "FigshareArticle",
+  "type": "object",
+  "description": "JSON Structure for the Figshare Article object used by the Adelaide Figshare research data API.",
+  "properties": {
+    "id": {
+      "type": "int64",
+      "description": "Unique identifier for article"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of article"
+    },
+    "doi": {
+      "type": "string",
+      "description": "DOI"
+    },
+    "handle": {
+      "type": "string",
+      "description": "Handle"
+    },
+    "url": {
+      "type": "uri",
+      "description": "API endpoint for article"
+    },
+    "url_public_html": {
+      "type": "uri",
+      "description": "Public site endpoint for article"
+    },
+    "url_public_api": {
+      "type": "uri",
+      "description": "Public API endpoint for article"
+    },
+    "url_private_html": {
+      "type": "uri",
+      "description": "Private site endpoint for article"
+    },
+    "url_private_api": {
+      "type": "uri",
+      "description": "Private API endpoint for article"
+    },
+    "thumb": {
+      "type": "uri",
+      "description": "Thumbnail image"
+    },
+    "defined_type": {
+      "type": "int32",
+      "description": "Type of article identifier"
+    },
+    "defined_type_name": {
+      "type": "string",
+      "description": "Name of the article type identifier"
+    },
+    "resource_doi": {
+      "type": "string",
+      "description": "Publisher article DOI (deprecated by related materials)"
+    },
+    "resource_title": {
+      "type": "string",
+      "description": "Publisher article title (deprecated by related materials)"
+    },
+    "created_date": {
+      "type": "string",
+      "description": "Date when article was created"
+    }
+  }
+}

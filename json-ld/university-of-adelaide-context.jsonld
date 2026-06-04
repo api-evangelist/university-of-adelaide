@@ -1,0 +1,43 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "uoa": "https://www.adelaide.edu.au/vocab#",
+    "figshare": "https://api.figshare.com/v2/vocab#",
+    "name": "schema:name",
+    "url": "schema:url",
+    "description": "schema:description",
+    "Organization": "schema:CollegeOrUniversity",
+    "identifier": "schema:identifier",
+    "doi": "uoa:doi",
+    "handle": "uoa:handle",
+    "Article": {
+      "@id": "schema:Dataset",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "doi": "uoa:doi",
+        "handle": "uoa:handle",
+        "url": "schema:url",
+        "url_public_html": "schema:mainEntityOfPage",
+        "thumb": "schema:thumbnailUrl",
+        "defined_type_name": "schema:additionalType",
+        "created_date": "schema:dateCreated",
+        "timeline": "uoa:timeline"
+      }
+    },
+    "Collection": {
+      "@id": "schema:Collection",
+      "@context": {
+        "id": "schema:identifier",
+        "title": "schema:name",
+        "doi": "uoa:doi",
+        "handle": "uoa:handle",
+        "url": "schema:url"
+      }
+    }
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "University of Adelaide",
+  "url": "https://www.adelaide.edu.au/",
+  "description": "Public research university in Adelaide, South Australia, exposing scholarly research data via the Adelaide Figshare API and the Adelaide Research & Scholarship DSpace repository."
+}

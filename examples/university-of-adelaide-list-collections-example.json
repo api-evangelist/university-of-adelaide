@@ -1,0 +1,10 @@
+[
+  {
+    "id": 123,
+    "title": "Sample collection",
+    "doi": "10.6084/m9.figshare.123",
+    "handle": "111184/figshare.1234",
+    "url": "https://api.figshare.com/v2/collections/123",
+    "timeline": {}
+  }
+]
