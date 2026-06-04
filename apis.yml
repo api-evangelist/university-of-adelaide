@@ -1,0 +1,99 @@
+---
+aid: university-of-adelaide
+name: University of Adelaide
+description: >-
+  The University of Adelaide is a public research university in Adelaide, South
+  Australia, founded in 1874, and ranked #72 in the QS World University Rankings
+  2025. Its public, developer-facing footprint is centered on open scholarly
+  infrastructure rather than a unified developer portal: the "Adelaide Research &
+  Scholarship" institutional repository runs on DSpace 7.6.1 and exposes both a
+  REST API and an OAI-PMH metadata endpoint, and the university operates an
+  Adelaide Figshare research-data instance backed by the shared Figshare public
+  API and OAI-PMH. Authentication is handled by a CAS-based single sign-on, and
+  the institution maintains a public GitHub organization built largely around its
+  Drupal "Shepherd" site-management platform. No consolidated, self-service public
+  API developer portal was found.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/university-of-adelaide/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Research
+  - Institutional Repository
+  - Open Data
+  - Australia
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: university-of-adelaide:dspace-rest
+    name: Adelaide Research & Scholarship REST API
+    description: >-
+      DSpace 7.6.1 REST (HAL/JSON) API for the University of Adelaide
+      institutional repository "Adelaide Research & Scholarship", exposing
+      communities, collections, items, and bitstreams for theses, articles,
+      and other scholarly outputs. Confirmed live returning the DSpace root
+      endpoint.
+    humanURL: https://digital.library.adelaide.edu.au/
+    baseURL: https://digital.library.adelaide.edu.au/server/api
+    tags: [ Repository, DSpace, Research, Scholarly, Library ]
+    properties:
+      - type: Documentation
+        url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+      - type: BaseURL
+        url: https://digital.library.adelaide.edu.au/server/api
+  - aid: university-of-adelaide:dspace-oai-pmh
+    name: Adelaide Research & Scholarship OAI-PMH
+    description: >-
+      OAI-PMH 2.0 metadata harvesting endpoint for the "Adelaide Research &
+      Scholarship" DSpace repository. Confirmed live; the Identify response
+      reports repository name "Adelaide Research & Scholarship" with earliest
+      datestamp 2002.
+    humanURL: https://digital.library.adelaide.edu.au/
+    baseURL: https://digital.library.adelaide.edu.au/server/oai/request
+    tags: [ OAI-PMH, Metadata Harvesting, Repository, DSpace, Library ]
+    properties:
+      - type: Documentation
+        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+      - type: BaseURL
+        url: https://digital.library.adelaide.edu.au/server/oai/request
+  - aid: university-of-adelaide:figshare
+    name: Adelaide Figshare Research Data API
+    description: >-
+      The University of Adelaide operates an Adelaide Figshare instance
+      (adelaide.figshare.com) for research data and digital objects. Programmatic
+      access is provided by the shared Figshare public REST API and OAI-PMH
+      endpoint, both confirmed live; institution-scoped content can be queried
+      via the Figshare API.
+    humanURL: https://adelaide.figshare.com/
+    baseURL: https://api.figshare.com/v2
+    tags: [ Research Data, Figshare, Repository, Open Data ]
+    properties:
+      - type: Documentation
+        url: https://docs.figshare.com/
+      - type: BaseURL
+        url: https://api.figshare.com/v2
+common:
+  - type: Website
+    url: https://www.adelaide.edu.au/
+  - type: GitHub
+    url: https://github.com/universityofadelaide
+  - type: LinkedIn
+    url: https://au.linkedin.com/school/uniofadelaide/
+  - type: Authentication
+    url: https://login.adelaide.edu.au/
+  - type: Plans
+    url: plans/university-of-adelaide-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/university-of-adelaide-rate-limits.yml
+  - type: FinOps
+    url: finops/university-of-adelaide-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
