@@ -98,6 +98,10 @@ apis:
       - type: JSONLD
         url: json-ld/university-of-adelaide-context.jsonld
 common:
+  - type: Authentication
+    url: authentication/university-of-adelaide-authentication.yml
+  - type: OAuthScopes
+    url: scopes/university-of-adelaide-scopes.yml
   - type: Website
     url: https://www.adelaide.edu.au/
   - type: GitHub
