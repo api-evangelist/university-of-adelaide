@@ -98,6 +98,8 @@ apis:
       - type: JSONLD
         url: json-ld/university-of-adelaide-context.jsonld
 common:
+  - type: AgenticAccess
+    url: agentic-access/university-of-adelaide-agentic-access.yml
   - type: DomainSecurity
     url: security/university-of-adelaide-domain-security.yml
   - type: Authentication
