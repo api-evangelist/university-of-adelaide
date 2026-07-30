@@ -14,9 +14,22 @@ description: >-
   Drupal "Shepherd" site-management platform. No consolidated, self-service public
   API developer portal was found.
 type: Index
+accessModel:
+  pricing: free
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Free · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-adelaide.png
 url: https://raw.githubusercontent.com/api-evangelist/university-of-adelaide/refs/heads/main/apis.yml
 tags:
   - Education
@@ -30,73 +43,364 @@ created: '2026-06-03'
 modified: '2026-06-03'
 specificationVersion: '0.19'
 apis:
-  - aid: university-of-adelaide:dspace-rest
-    name: Adelaide Research & Scholarship REST API
-    description: >-
-      DSpace 7.6.1 REST (HAL/JSON) API for the University of Adelaide
-      institutional repository "Adelaide Research & Scholarship", exposing
-      communities, collections, items, and bitstreams for theses, articles,
-      and other scholarly outputs. Confirmed live returning the DSpace root
-      endpoint.
-    humanURL: https://digital.library.adelaide.edu.au/
-    baseURL: https://digital.library.adelaide.edu.au/server/api
-    tags: [ Repository, DSpace, Research, Scholarly, Library ]
-    properties:
-      - type: Documentation
-        url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
-      - type: BaseURL
-        url: https://digital.library.adelaide.edu.au/server/api
-  - aid: university-of-adelaide:dspace-oai-pmh
-    name: Adelaide Research & Scholarship OAI-PMH
-    description: >-
-      OAI-PMH 2.0 metadata harvesting endpoint for the "Adelaide Research &
-      Scholarship" DSpace repository. Confirmed live; the Identify response
-      reports repository name "Adelaide Research & Scholarship" with earliest
-      datestamp 2002.
-    humanURL: https://digital.library.adelaide.edu.au/
-    baseURL: https://digital.library.adelaide.edu.au/server/oai/request
-    tags: [ OAI-PMH, Metadata Harvesting, Repository, DSpace, Library ]
-    properties:
-      - type: Documentation
-        url: https://www.openarchives.org/OAI/openarchivesprotocol.html
-      - type: BaseURL
-        url: https://digital.library.adelaide.edu.au/server/oai/request
-  - aid: university-of-adelaide:figshare
-    name: Adelaide Figshare Research Data API
-    description: >-
-      The University of Adelaide operates an Adelaide Figshare instance
-      (adelaide.figshare.com) for research data and digital objects. Programmatic
-      access is provided by the shared Figshare public REST API and OAI-PMH
-      endpoint, both confirmed live; institution-scoped content can be queried
-      via the Figshare API.
-    humanURL: https://adelaide.figshare.com/
-    baseURL: https://api.figshare.com/v2
-    tags: [ Research Data, Figshare, Repository, Open Data ]
-    properties:
-      - type: Documentation
-        url: https://docs.figshare.com/
-      - type: BaseURL
-        url: https://api.figshare.com/v2
-      - type: OpenAPI
-        url: openapi/university-of-adelaide-figshare.yaml
-      - type: JSONSchema
-        url: json-schema/university-of-adelaide-article-schema.json
-      - type: JSONSchema
-        url: json-schema/university-of-adelaide-collection-schema.json
-      - type: JSONStructure
-        url: json-structure/university-of-adelaide-article-structure.json
-      - type: JSONStructure
-        url: json-structure/university-of-adelaide-collection-structure.json
-      - type: Examples
-        url: examples/university-of-adelaide-list-articles-example.json
-      - type: Examples
-        url: examples/university-of-adelaide-list-collections-example.json
-      - type: Rules
-        url: rules/university-of-adelaide-rules.yml
-      - type: Vocabulary
-        url: vocabulary/university-of-adelaide-vocabulary.yml
-      - type: JSONLD
-        url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:dspace-rest
+  name: Adelaide Research & Scholarship REST API
+  description: >-
+    DSpace 7.6.1 REST (HAL/JSON) API for the University of Adelaide institutional repository "Adelaide
+    Research & Scholarship", exposing communities, collections, items, and bitstreams for theses, articles,
+    and other scholarly outputs. Confirmed live returning the DSpace root endpoint.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - Repository
+  - DSpace
+  - Research
+  - Scholarly
+  - Library
+  properties:
+  - type: Documentation
+    url: https://wiki.lyrasis.org/display/DSDOC7x/REST+API
+  - type: BaseURL
+    url: https://digital.library.adelaide.edu.au/server/api
+- aid: university-of-adelaide:dspace-oai-pmh
+  name: Adelaide Research & Scholarship OAI-PMH
+  description: >-
+    OAI-PMH 2.0 metadata harvesting endpoint for the "Adelaide Research & Scholarship" DSpace repository.
+    Confirmed live; the Identify response reports repository name "Adelaide Research & Scholarship" with
+    earliest datestamp 2002.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/oai/request
+  tags:
+  - OAI-PMH
+  - Metadata Harvesting
+  - Repository
+  - DSpace
+  - Library
+  properties:
+  - type: Documentation
+    url: https://www.openarchives.org/OAI/openarchivesprotocol.html
+  - type: BaseURL
+    url: https://digital.library.adelaide.edu.au/server/oai/request
+- aid: university-of-adelaide:university-of-adelaide-altmetric-api
+  name: University of Adelaide altmetric API
+  description: The altmetric API from University of Adelaide — 1 operation(s) for altmetric.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - altmetric
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-altmetric-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-articles-api
+  name: University of Adelaide articles API
+  description: The articles API from University of Adelaide — 34 operation(s) for articles.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - articles
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-articles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-authors-api
+  name: University of Adelaide authors API
+  description: The authors API from University of Adelaide — 2 operation(s) for authors.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - authors
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-authors-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-collections-api
+  name: University of Adelaide collections API
+  description: The collections API from University of Adelaide — 21 operation(s) for collections.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - collections
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-collections-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-institutions-api
+  name: University of Adelaide institutions API
+  description: The institutions API from University of Adelaide — 20 operation(s) for institutions.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - institutions
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-institutions-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-oauth-api
+  name: University of Adelaide oauth API
+  description: The oauth API from University of Adelaide — 1 operation(s) for oauth.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - oauth
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-other-api
+  name: University of Adelaide other API
+  description: The other API from University of Adelaide — 7 operation(s) for other.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - other
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-other-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-profiles-api
+  name: University of Adelaide profiles API
+  description: The profiles API from University of Adelaide — 2 operation(s) for profiles.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-profiles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-projects-api
+  name: University of Adelaide projects API
+  description: The projects API from University of Adelaide — 17 operation(s) for projects.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - projects
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-projects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
+- aid: university-of-adelaide:university-of-adelaide-symplectic-api
+  name: University of Adelaide symplectic API
+  description: The symplectic API from University of Adelaide — 5 operation(s) for symplectic.
+  humanURL: https://digital.library.adelaide.edu.au/
+  baseURL: https://digital.library.adelaide.edu.au/server/api
+  tags:
+  - symplectic
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-adelaide-symplectic-api-openapi.yml
+  - type: Documentation
+    url: https://docs.figshare.com/
+  - type: BaseURL
+    url: https://api.figshare.com/v2
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-article-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-adelaide-collection-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-article-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-adelaide-collection-structure.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-articles-example.json
+  - type: Examples
+    url: examples/university-of-adelaide-list-collections-example.json
+  - type: Rules
+    url: rules/university-of-adelaide-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-adelaide-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-adelaide-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/university-of-adelaide-agentic-access.yml
