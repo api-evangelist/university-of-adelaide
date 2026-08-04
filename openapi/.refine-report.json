@@ -1,0 +1,32 @@
+{
+  "provider": "university-of-adelaide",
+  "sources": [
+    "university-of-adelaide-altmetric-api-openapi.yml",
+    "university-of-adelaide-articles-api-openapi.yml",
+    "university-of-adelaide-authors-api-openapi.yml",
+    "university-of-adelaide-collections-api-openapi.yml",
+    "university-of-adelaide-institutions-api-openapi.yml",
+    "university-of-adelaide-oauth-api-openapi.yml",
+    "university-of-adelaide-other-api-openapi.yml",
+    "university-of-adelaide-profiles-api-openapi.yml",
+    "university-of-adelaide-projects-api-openapi.yml",
+    "university-of-adelaide-symplectic-api-openapi.yml"
+  ],
+  "outputs": [
+    "university-of-adelaide-altmetric-api-openapi.yml",
+    "university-of-adelaide-articles-api-openapi.yml",
+    "university-of-adelaide-authors-api-openapi.yml",
+    "university-of-adelaide-collections-api-openapi.yml",
+    "university-of-adelaide-institutions-api-openapi.yml",
+    "university-of-adelaide-oauth-api-openapi.yml",
+    "university-of-adelaide-other-api-openapi.yml",
+    "university-of-adelaide-profiles-api-openapi.yml",
+    "university-of-adelaide-projects-api-openapi.yml",
+    "university-of-adelaide-symplectic-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
