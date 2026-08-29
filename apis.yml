@@ -427,6 +427,9 @@ apis:
   - type: JSONLD
     url: json-ld/university-of-adelaide-context.jsonld
 common:
+  - type: CapabilityMap
+    url: capabilities/university-of-adelaide-capability-edges.yml
+    name: University of Adelaide Business Capability Map
   - type: AgenticAccess
     url: agentic-access/university-of-adelaide-agentic-access.yml
   - type: DomainSecurity
