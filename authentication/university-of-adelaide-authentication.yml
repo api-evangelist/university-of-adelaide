@@ -1,18 +1,76 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/university-of-adelaide-figshare.yaml
+generated: '2026-08-30'
+method: probed
+source: >-
+  live HTTP probes of adelaide.edu.au authentication hosts and the Australian Access Federation
+  metadata aggregate, 2026-08-30. Replaces a 2026-07-11 artifact that was derived from Figshare's
+  generic OAuth 2.0 contract and described Figshare's authorization server, not the institution's.
+description: >-
+  The University of Adelaide operates its own authentication estate and does not publish a public
+  API authorization server. Every credentialed surface below terminates at an institution-controlled
+  identity provider; none issues tokens to an unaffiliated developer. The public, keyless surface of
+  this institution — the DSpace REST API and its OAI-PMH endpoint — requires no authentication at
+  all for read access.
 summary:
   types:
-  - oauth2
-  oauth2_flows:
-  - authorizationCode
+  - saml2
+  - cas
+  - oidc
+  public_read_without_credentials: true
+  developer_self_service_tokens: false
 schemes:
-- name: OAuth2
-  type: oauth2
-  flows:
-  - flow: authorizationCode
-    authorizationUrl: https://figshare.com/account/applications/authorize
-    tokenUrl: https://api.figshare.com/v2/token
-    scopes: 1
-  sources:
-  - openapi/university-of-adelaide-figshare.yaml
+- name: Shibboleth SAML 2.0 Identity Provider
+  type: saml2
+  x-operator: institution
+  entity_id: urn:mace:federation.org.au:testfed:au-idp.adelaide.edu.au
+  metadata_url: https://au-idp.adelaide.edu.au/idp/shibboleth
+  scope: adelaide.edu.au
+  federation: Australian Access Federation (AAF)
+  federation_metadata: https://md.aaf.edu.au/aaf-metadata.xml
+  bindings:
+  - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+  - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST
+  - urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST-SimpleSign
+  sso_endpoints:
+  - https://au-idp.adelaide.edu.au/idp/profile/SAML2/Redirect/SSO
+  - https://au-idp.adelaide.edu.au/idp/profile/SAML2/POST/SSO
+  status: 200
+  evidence: examples/university-of-adelaide-saml-idp-metadata.xml
+- name: Central Authentication Service (CAS)
+  type: cas
+  x-operator: institution
+  login_url: https://login.adelaide.edu.au/cas/login
+  status: 200
+  notes: >-
+    Institution-hosted CAS single sign-on. Web SSO for staff and student applications; not an API
+    authorization server and issues no developer-facing tokens.
+- name: Okta workforce SSO (SAML service provider)
+  type: saml2
+  x-operator: tenant
+  entry_point: https://id.adelaide.edu.au/
+  status: 200
+  notes: >-
+    access.adelaide.edu.au (the student system) 302s to an Okta-hosted SAML endpoint on the
+    institution-specific subdomain id.adelaide.edu.au. Okta is the vendor; the tenant is the
+    institution's.
+- name: Canvas / MyUni OpenID Connect + LTI 1.3
+  type: oidc
+  x-operator: tenant
+  issuer: https://myuni.adelaide.edu.au
+  discovery_url: https://myuni.adelaide.edu.au/.well-known/openid-configuration
+  authorization_endpoint: https://myuni.adelaide.edu.au/login/oauth2/auth
+  token_endpoint: https://myuni.adelaide.edu.au/login/oauth2/token
+  jwks_uri: https://myuni.adelaide.edu.au/login/oauth2/jwks
+  lti_jwks_uri: https://myuni.adelaide.edu.au/api/lti/security/jwks
+  status: 200
+  notes: >-
+    Instructure Canvas LMS on the institution's own hostname. The OIDC discovery document and LTI
+    JWKS are publicly readable; the REST API at /api/v1 returns
+    401 {"status":"unauthenticated"} and issues developer keys only through institutional admin
+    approval.
+unauthenticated_surfaces:
+- url: https://digital.library.adelaide.edu.au/server/api
+  status: 200
+  notes: DSpace REST read access requires no credentials; /server/api/authn advertises the login methods for write operations.
+- url: https://digital.library.adelaide.edu.au/server/oai/request?verb=Identify
+  status: 200
+  notes: OAI-PMH harvesting is open.

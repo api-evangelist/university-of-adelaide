@@ -1,53 +1,107 @@
 ---
+generated: '2026-08-30'
+method: derived
+source: >-
+  derived from live responses of the institution's own endpoints — the DSpace 7.6.1 HAL root at
+  https://digital.library.adelaide.edu.au/server/api, the OAI-PMH Identify response at
+  /server/oai/request, and the Shibboleth IdP metadata at https://au-idp.adelaide.edu.au/idp/shibboleth.
+  Replaces a 2026-06-03 vocabulary derived from Figshare's generic API contract, whose terms
+  (Figshare Article, Collection, Project, figshare DOI) described a vendor's data model rather than
+  this institution's.
 vocabulary:
-  name: University of Adelaide Research Data Vocabulary
+  name: University of Adelaide Institutional Vocabulary
   description: >-
-    Controlled vocabulary for the terms exposed by the University of Adelaide's
-    research and scholarly APIs, drawn from the live Figshare OpenAPI 3.0.3
-    description and the DSpace 7.6.1 institutional repository.
-  version: "1.0.0"
+    The terms the University of Adelaide's own machine-readable surfaces actually use. Every term
+    below appears in a response this institution serves from a host under adelaide.edu.au. Terms
+    belonging to a vendor platform the institution merely rents are marked with x-operator tenant
+    and named as the vendor's.
+  version: "2.0.0"
   terms:
-    - term: Article
-      definition: >-
-        A Figshare research output (dataset, paper, media, software, etc.)
-        identified by an integer id and a DOI.
-      tags: [ figshare, object, research-data ]
-    - term: Collection
-      definition: >-
-        A curated grouping of Figshare articles, identified by id, DOI and handle.
-      tags: [ figshare, object, curation ]
-    - term: Project
-      definition: A Figshare workspace grouping articles and collaborators.
-      tags: [ figshare, object, collaboration ]
-    - term: DOI
-      definition: >-
-        Digital Object Identifier minted for an article or collection,
-        e.g. 10.6084/m9.figshare.1434614.
-      tags: [ identifier, persistent-identifier ]
-    - term: Handle
-      definition: A Handle System persistent identifier for a research object.
-      tags: [ identifier, persistent-identifier ]
-    - term: defined_type
-      definition: >-
-        Integer code classifying the article kind, surfaced as defined_type_name
-        (e.g. media, dataset, figure, software).
-      tags: [ figshare, classification ]
-    - term: Timeline
-      definition: Date events (posted, published, submitted) for a research object.
-      tags: [ figshare, temporal ]
-    - term: Community
-      definition: >-
-        Top-level DSpace organizational unit in the Adelaide Research &
-        Scholarship repository containing collections.
-      tags: [ dspace, repository, structure ]
-    - term: Item
-      definition: A DSpace repository entry (thesis, article) holding metadata and bitstreams.
-      tags: [ dspace, repository, object ]
-    - term: Bitstream
-      definition: A binary file (e.g. PDF) attached to a DSpace item.
-      tags: [ dspace, repository, file ]
-    - term: OAI-PMH
-      definition: >-
-        Open Archives Initiative Protocol for Metadata Harvesting endpoint
-        exposing repository metadata for bulk harvest.
-      tags: [ metadata, harvesting, interoperability ]
+  - term: Adelaide Research & Scholarship
+    definition: >-
+      The institution's DSpace 7.6.1 institutional repository, self-hosted at
+      digital.library.adelaide.edu.au. Reported as `dspaceName` by the REST root and as
+      `repositoryName` by the OAI-PMH Identify response.
+    x-operator: institution
+    tags: [ repository, dspace, identity ]
+  - term: Community
+    definition: >-
+      The top-level DSpace grouping — typically a faculty, school or research centre — under which
+      Collections are organised. Exposed at /server/api/core/communities.
+    x-operator: institution
+    tags: [ dspace, structure ]
+  - term: Collection
+    definition: >-
+      A DSpace container of Items within a Community; the unit an OAI-PMH set maps to. Exposed at
+      /server/api/core/collections.
+    x-operator: institution
+    tags: [ dspace, structure ]
+  - term: Item
+    definition: >-
+      A single scholarly output in the repository — thesis, article, dataset or report — carrying
+      Dublin Core metadata and one or more Bundles of Bitstreams. Exposed at /server/api/core/items.
+    x-operator: institution
+    tags: [ dspace, object, scholarly ]
+  - term: Bitstream
+    definition: >-
+      A stored file attached to an Item, with a Bitstream Format and access conditions. Exposed at
+      /server/api/core/bitstreams.
+    x-operator: institution
+    tags: [ dspace, object, file ]
+  - term: Handle
+    definition: >-
+      The persistent identifier the repository mints for Items, under the institution's Handle
+      prefix 2440 (sample OAI identifier oai:digital.library.adelaide.edu.au:2440/1234).
+    x-operator: institution
+    tags: [ identifier, persistence ]
+  - term: OAI Set
+    definition: >-
+      A selective-harvesting grouping in the OAI-PMH interface, used by aggregators such as Trove
+      and OpenAIRE to harvest subsets of the repository.
+    x-operator: institution
+    tags: [ oai-pmh, harvesting ]
+  - term: Datestamp
+    definition: >-
+      The OAI-PMH modification timestamp used for incremental harvesting; this repository reports
+      granularity YYYY-MM-DDThh:mm:ssZ and an earliest datestamp of 2002-01-01.
+    x-operator: institution
+    tags: [ oai-pmh, harvesting ]
+  - term: Scope
+    definition: >-
+      The `shibmd:Scope` value `adelaide.edu.au` asserted by the institution's Shibboleth IdP —
+      the namespace within which its scoped SAML attributes (eduPersonScopedAffiliation,
+      eduPersonPrincipalName) are authoritative.
+    x-operator: institution
+    tags: [ saml, shibboleth, identity ]
+  - term: Entity Descriptor
+    definition: >-
+      The SAML 2.0 metadata document describing the institution's Identity Provider, entityID
+      urn:mace:federation.org.au:testfed:au-idp.adelaide.edu.au, registered in the Australian
+      Access Federation.
+    x-operator: institution
+    tags: [ saml, federation, identity ]
+  - term: DataCite Repository
+    definition: >-
+      The institution's registered DataCite DOI-minting client, `adelaide.repo`, held under the
+      DataCite provider record `adelaide` (Adelaide University, consortium organisation).
+    x-operator: institution
+    tags: [ doi, datacite, persistence ]
+  - term: MyUni Course
+    definition: >-
+      A course shell in the institution's Canvas LMS at myuni.adelaide.edu.au. The object model is
+      Instructure's, not the institution's; the tenant, roster and content are the institution's.
+    x-operator: tenant
+    tags: [ canvas, lms, tenant ]
+  - term: LTI Line Item
+    definition: >-
+      An LTI 1.3 Assignment and Grade Services gradebook column exposed by the MyUni Canvas tenant.
+      Contract owned by 1EdTech/Instructure; deployment owned by the institution.
+    x-operator: tenant
+    tags: [ lti, canvas, tenant ]
+  - term: Adelaide Figshare Item
+    definition: >-
+      A research-data record in the institution's Figshare repository at adelaide.figshare.com. The
+      data and DOIs are the institution's; the object model, the API and the contract are Figshare's.
+      Recorded here so the boundary is explicit — this vocabulary does not restate Figshare's schema.
+    x-operator: tenant
+    tags: [ figshare, research-data, tenant ]
