@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EntityDescriptor entityID="urn:mace:federation.org.au:testfed:au-idp.adelaide.edu.au" xmlns="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:shibmd="urn:mace:shibboleth:metadata:1.0">
+  <IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <Extensions>
+      <shibmd:Scope regexp="false">adelaide.edu.au</shibmd:Scope>
+    </Extensions>
+    <KeyDescriptor use="signing">
+      <ds:KeyInfo>
+        <ds:KeyName>idp-signing</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDQzCCAiugAwIBAgIUXFgY0FAR1m2Wp+eNTtcLIcFX5vkwDQYJKoZIhvcNAQEL
+BQAwITEfMB0GA1UEAwwWYXUtaWRwLmFkZWxhaWRlLmVkdS5hdTAeFw0xNTExMzAw
+NTE3MzJaFw0zNTExMzAwNTE3MzJaMCExHzAdBgNVBAMMFmF1LWlkcC5hZGVsYWlk
+ZS5lZHUuYXUwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCc/+N7Ox65
+jJ11NBwwgh0OGOLzCxRjNn/wqasy8pgh3R2OWki0cA/EaK3NqIIcz4WMbbhcfe0V
+yfE6bFanNx7DcUErrANAUEKbc52xkVJr7RWL5zKsXtzbk8+qgPjjSc88ElPS+psP
+bY/M1spjPim4qP2MZ8GtL5kzOUrkKUP/q8PEiXSXfgzAAhrR3CFkqqaTtSpma2zs
+98LPnCybBBcCPtv477G71mtyN1/ByfwP/NwOyWIObvwzdzWKDqi4w49e+2vRmeKK
+Xj/OvlIHSwhJplG8ULLoijpfBj4W5y0vDNro6pkB33bli+ZqTXZk3y2YLsZLNc2a
+o2y+pP5qdGsZAgMBAAGjczBxMB0GA1UdDgQWBBScSpu/z5a6ubL19vBkU+db0lvv
+nzBQBgNVHREESTBHghZhdS1pZHAuYWRlbGFpZGUuZWR1LmF1hi1odHRwczovL2F1
+LWlkcC5hZGVsYWlkZS5lZHUuYXUvaWRwL3NoaWJib2xldGgwDQYJKoZIhvcNAQEL
+BQADggEBAEeAbLSRWU6bIn7/H8CbnndXe6eZkhej5MBd8RHQau21TMQNihYhkHYM
+T8PQPciekk6nNomcSjYo/3znEakL5AN3/fRIlGf4uehnw8mU1MhnHoUA45egx9yr
+g/MtSa1E9GOZzhpSzGdF5Tccm2tPZ+HSND6G4Sjj0FY5WtVdEtnR3oBey6wY06q5
+E+kwMKwRJQzkzHjdN58eGSMN5FgJdY6RVvhrpIa3THhmuBO/qI6EdmOoE4LvSc1Y
+bcjMRCby1Ucqw4m+FdYUWSKBF+YLh4h5WbLwYWPIj7BBqQpoeVQ9aTQC+xkYIfRx
+lXPEF0yE1l6iNf9If6axPIdUT7ojA5U=
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <KeyDescriptor use="encryption">
+      <ds:KeyInfo>
+        <ds:KeyName>idp-encryption</ds:KeyName>
+        <ds:X509Data>
+          <ds:X509Certificate>
+MIIDRDCCAiygAwIBAgIVAK8IJ1dfE7LILLDxFbgoOmz+kDgWMA0GCSqGSIb3DQEB
+CwUAMCExHzAdBgNVBAMMFmF1LWlkcC5hZGVsYWlkZS5lZHUuYXUwHhcNMTUxMTMw
+MDUxNzMyWhcNMzUxMTMwMDUxNzMyWjAhMR8wHQYDVQQDDBZhdS1pZHAuYWRlbGFp
+ZGUuZWR1LmF1MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgBToyfcr
+wLTRzxGaz1JCbRZ1QOwSTpNuTMihzjvveEESdJFE8rPD1P+RbcB7+iOdQeu0EJ8u
+K0QxuI9vkEBUq78+Kg4KMosgxCAw4FOe+8J+ODmUYkXIHbVd1rwllyXoWZ6cAejV
+o6Mby+DIWYGFvSlEJoMOgqPpawtj8HS8KsmUGmXl0YvGUjYuadrlecw9cXoXDDiI
++Lb9oZgvVTyufM0eAkMAXNa3ZZnhGTf/ecsA20EPCAJq+ob12gRAb/lpNpx58jyL
+R073Ho+RH1WCm7tSyTzieFyS9ScMedF1dClh12edYf6XCxGIg3kmn3nrjHcfRHAc
+AXoOR/gVCizW6wIDAQABo3MwcTAdBgNVHQ4EFgQUdWAd9cFrD1AbN48nTa4iLla6
+I1MwUAYDVR0RBEkwR4IWYXUtaWRwLmFkZWxhaWRlLmVkdS5hdYYtaHR0cHM6Ly9h
+dS1pZHAuYWRlbGFpZGUuZWR1LmF1L2lkcC9zaGliYm9sZXRoMA0GCSqGSIb3DQEB
+CwUAA4IBAQBzCNtgM3uJulyomDE/kTEbHbK6xh7KlSbeJmHvGuFMrZbMPxroDu51
+cV/tNA3cJ0UJck/I75mrXoBhwWA7CWXiAInVYoAWGRfM8n1SjDOreVONpjufghMj
+AxwM23NMyyXU9yP32tfFfb1EQflerYF0LAbw6UvTUytM/uKE9DPKXhL2E7ezG9sn
+PsnYvHPy3yoADqE7RsA4/EblSeA3kWaNp0S2WB7Hjfy+EfxjNVpRdiaAgK9DWc+f
+bcoBXB8wfHik20JKNb1yTt5o48rPlQ8rEEFr/LTdHP2wfIE0YeGsTahpl09QFrdb
+uH/S+elvRVftt9DFrLf7Ghjrgs6X9uJJ
+          </ds:X509Certificate>
+        </ds:X509Data>
+      </ds:KeyInfo>
+    </KeyDescriptor>
+    <NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:transient</NameIDFormat>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://au-idp.adelaide.edu.au/idp/profile/SAML2/POST/SSO"/>
+    <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://au-idp.adelaide.edu.au/idp/profile/SAML2/Redirect/SSO"/>
+    <saml:Attribute Name="urn:oid:1.3.6.1.4.1.27856.1.2.5" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="auEduPersonSharedToken"/>
+    <saml:Attribute Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="email"/>
+    <saml:Attribute Name="urn:oid:2.16.840.1.113730.3.1.241" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" FriendlyName="displayName"/>
+  </IDPSSODescriptor>
+  <Organization>
+    <OrganizationName xml:lang="en">adelaide.edu.au</OrganizationName>
+    <OrganizationDisplayName xml:lang="en">Adelaide University</OrganizationDisplayName>
+    <OrganizationURL xml:lang="en">https://www.adelaide.edu.au/</OrganizationURL>
+  </Organization>
+</EntityDescriptor>

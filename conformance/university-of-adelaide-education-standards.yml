@@ -1,0 +1,133 @@
+generated: '2026-08-30'
+method: probed
+source: >-
+  live HTTP probes of adelaide.edu.au hosts, the Australian Access Federation SAML aggregate,
+  and the DataCite REST API, 2026-08-30
+regime: education
+regime_standards:
+- scim
+- lti
+- oneroster
+- ed-fi
+- caliper
+- qti
+- oai-pmh
+- shibboleth
+- saml
+- orcid
+- datacite
+- crossref
+description: >-
+  Domain-standard conformance for the University of Adelaide, read from live endpoints rather than
+  from prose. Reward-only: a standard absent from `conformant` below was probed and not found, or
+  was found only as a vendor capability with no institutional deployment. Every entry names the exact
+  URL, status code and the field in the response that carries the evidence.
+conformant:
+- standard: oai-pmh
+  version: '2.0'
+  x-operator: institution
+  confidence: high
+  evidence:
+    url: https://digital.library.adelaide.edu.au/server/oai/request?verb=Identify
+    status: 200
+    locator: /OAI-PMH/Identify/protocolVersion = "2.0"
+    detail: >-
+      repositoryName "Adelaide Research & Scholarship", baseURL
+      https://digital.library.adelaide.edu.au/server/oai/request, granularity
+      YYYY-MM-DDThh:mm:ssZ, deletedRecord transient, earliestDatestamp 2002-01-01T00:00:00Z.
+    artifact: examples/university-of-adelaide-oai-pmh-identify-response.xml
+- standard: saml
+  version: '2.0'
+  x-operator: institution
+  confidence: high
+  evidence:
+    url: https://au-idp.adelaide.edu.au/idp/shibboleth
+    status: 200
+    locator: /EntityDescriptor/IDPSSODescriptor/@protocolSupportEnumeration = "urn:oasis:names:tc:SAML:2.0:protocol"
+    detail: >-
+      SAML 2.0 Identity Provider metadata served from the institution's own host, with
+      HTTP-Redirect, HTTP-POST and POST-SimpleSign SSO bindings at
+      https://au-idp.adelaide.edu.au/idp/profile/SAML2/*/SSO.
+    artifact: examples/university-of-adelaide-saml-idp-metadata.xml
+- standard: shibboleth
+  x-operator: institution
+  confidence: high
+  evidence:
+    url: https://au-idp.adelaide.edu.au/idp/shibboleth
+    status: 200
+    locator: /EntityDescriptor/IDPSSODescriptor/Extensions/shibmd:Scope = "adelaide.edu.au"
+    detail: >-
+      Shibboleth IdP, scoped to adelaide.edu.au, registered in the Australian Access Federation
+      production aggregate (registrationAuthority https://aaf.edu.au) as
+      "Adelaide University Identity Provider". Cross-checked against
+      https://md.aaf.edu.au/aaf-metadata.xml (200), which also carries three Adelaide-operated
+      service providers: app.chatmate.adelaide.edu.au, git.adelaide.edu.au (Research GitLab) and
+      the CAUDIT benchmarking SP.
+    artifact: examples/university-of-adelaide-saml-idp-metadata.xml
+- standard: datacite
+  x-operator: institution
+  confidence: high
+  evidence:
+    url: https://api.datacite.org/providers/adelaide
+    status: 200
+    locator: data.attributes.memberType = "consortium_organization"
+    detail: >-
+      DataCite provider id "adelaide", name "Adelaide University", ROR https://ror.org/028g18b61,
+      member since 2020-05-14, one registered repository client (adelaide.repo). The institution
+      mints DOIs under its own DataCite membership.
+- standard: lti
+  version: 1.3
+  x-operator: tenant
+  confidence: high
+  evidence:
+    url: https://myuni.adelaide.edu.au/api/lti/security/jwks
+    status: 200
+    locator: keys[0].kty = "RSA"
+    detail: >-
+      LTI 1.3 tool-platform JWKS served at the institution's MyUni hostname. Corroborated by
+      https://myuni.adelaide.edu.au/.well-known/openid-configuration (200), which declares
+      issuer https://myuni.adelaide.edu.au, and by the LTI Assignment and Grade Services endpoint
+      https://myuni.adelaide.edu.au/api/lti/courses/1/line_items, which returns 401 (present,
+      credentialed) rather than 404. The LMS is Instructure Canvas — the deployment is the
+      institution's, the LTI implementation is the vendor's, hence x-operator tenant.
+declared_not_verified:
+- standard: orcid
+  x-operator: institution
+  confidence: low
+  evidence:
+    url: https://digital.library.adelaide.edu.au/server/api/integration/externalsources?size=50
+    status: 200
+    locator: _embedded.externalsources[].id includes "orcid" and "orcidWorks"
+    detail: >-
+      The institution's DSpace deployment registers ORCID as an external authority source, but a
+      live query against
+      /server/api/integration/externalsources/orcid/entries returned an nginx error page rather
+      than results, so the integration is declared and not demonstrably working. Not claimed as
+      conformant.
+- standard: crossref
+  x-operator: institution
+  confidence: low
+  evidence:
+    url: https://digital.library.adelaide.edu.au/server/api/integration/externalsources?size=50
+    status: 200
+    locator: _embedded.externalsources[].id includes "crossref" and "datacite"
+    detail: >-
+      Registered as a DSpace external metadata source in the institution's deployment. This is a
+      stock DSpace capability, not evidence of institutional Crossref membership, and no
+      Crossref-side record was probed. Not claimed as conformant.
+probed_not_found:
+- standard: scim
+  detail: >-
+    /scim/v2/ServiceProviderConfig returned 404 on all four candidate hosts probed:
+    id.adelaide.edu.au, myuni.adelaide.edu.au, digital.library.adelaide.edu.au and adelaide.edu.au.
+- standard: oneroster
+  detail: >-
+    https://myuni.adelaide.edu.au/api/v1/ims/oneroster/v1p1/orgs returned 404. The student system
+    at access.adelaide.edu.au 302s to Okta SSO at id.adelaide.edu.au with a SAMLRequest and exposes
+    no public roster surface.
+- standard: caliper
+  detail: No Caliper event-store or sensor endpoint published.
+- standard: qti
+  detail: No public QTI item bank or assessment API found.
+- standard: ed-fi
+  detail: US K-12 standard; not applicable to an Australian higher-education provider and not found.

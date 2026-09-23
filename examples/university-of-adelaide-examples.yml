@@ -1,0 +1,41 @@
+generated: '2026-08-30'
+method: probed
+source: live HTTP GET against institution-operated hosts under adelaide.edu.au
+description: >-
+  Real, unedited responses captured from the University of Adelaide's own hosts. Nothing here is
+  synthesised: each file is the byte-for-byte body returned by the URL named beside it. These are the
+  only machine-readable payloads this institution serves without credentials, and they are the
+  evidence behind every conformance claim in conformance/.
+examples:
+- file: university-of-adelaide-dspace-rest-root-response.json
+  url: https://digital.library.adelaide.edu.au/server/api
+  status: 200
+  content_type: application/hal+json
+  captured: '2026-08-30'
+  x-operator: institution
+  notes: >-
+    DSpace 7.6.1 HAL root document for "Adelaide Research & Scholarship". Advertises 60+ link
+    relations including items, communities, collections, discover, identifiers, oidc and
+    externalsources. The software is DSpace (open source, LYRASIS); the deployment, host and data
+    are the institution's.
+- file: university-of-adelaide-oai-pmh-identify-response.xml
+  url: https://digital.library.adelaide.edu.au/server/oai/request?verb=Identify
+  status: 200
+  content_type: text/xml
+  captured: '2026-08-30'
+  x-operator: institution
+  notes: >-
+    OAI-PMH 2.0 Identify response. repositoryName "Adelaide Research & Scholarship",
+    adminEmail digital-library@adelaide.edu.au, earliestDatestamp 2002-01-01, repositoryIdentifier
+    digital.library.adelaide.edu.au. This is the institution answering for itself.
+- file: university-of-adelaide-saml-idp-metadata.xml
+  url: https://au-idp.adelaide.edu.au/idp/shibboleth
+  status: 200
+  content_type: application/xml
+  captured: '2026-08-30'
+  x-operator: institution
+  notes: >-
+    Shibboleth SAML 2.0 IdP metadata served from the institution's own host. entityID
+    urn:mace:federation.org.au:testfed:au-idp.adelaide.edu.au, shibmd:Scope adelaide.edu.au,
+    signing certificate CN=au-idp.adelaide.edu.au. Registered in the Australian Access Federation
+    aggregate as "Adelaide University Identity Provider".
