@@ -298,7 +298,7 @@ apis:
   humanURL: https://myuni.adelaide.edu.au/
   baseURL: https://myuni.adelaide.edu.au/api/v1
   tags:
-  - Learning Management
+  - LMS
   - Canvas
   - Instructure
   - LTI
