@@ -1,4 +1,4 @@
-# University of Adelaide (university-of-adelaide)
+# University of Adelaide
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,93 +64,122 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-The University of Adelaide is a public research university in Adelaide, South Australia, founded in 1874 and a member of the Group of Eight. Since January 2026 it has been superseded by **Adelaide University**, the merged institution formed with the University of South Australia — ROR records [University of Adelaide](https://ror.org/00892tw58) as *inactive* with successor [Adelaide University](https://ror.org/028g18b61), and adelaide.edu.au now serves the merged institution. This repository catalogs the institution's public, developer-facing footprint as an [APIs.json](http://apisjson.org/) profile.
+The University of Adelaide is a public research university in Adelaide, South Australia, founded in 1874 and a member of the Group of Eight. Since January 2026 it has been superseded by Adelaide University, the merged institution formed with the University of South Australia: ROR records the University of Adelaide (https://ror.org/00892tw58) as inactive with successor Adelaide University (https://ror.org/028g18b61), adelaide.edu.au now serves the merged institution, and its DataCite and Australian Access Federation records both read "Adelaide University". It operates no public developer program. A full crawl of the 10,326-URL adelaide.edu.au sitemap on 2026-08-30 returned no developer portal, no API reference, no open-data portal, and no OpenAPI under any path. Its genuinely institution-operated machine-readable surfaces are three: the DSpace 7.6.1 "Adelaide Research & Scholarship" repository at digital.library.adelaide.edu.au, which serves a keyless HAL/JSON REST API and a live OAI-PMH 2.0 endpoint under the institution's own Handle prefix 2440; and the institution's Shibboleth SAML 2.0 Identity Provider at au-idp.adelaide.edu.au, registered in the Australian Access Federation and scoped to adelaide.edu.au. Everything else that looks like an Adelaide API is a vendor contract running under an Adelaide name: adelaide.figshare.com is a Figshare tenancy, myuni.adelaide.edu.au is an Instructure Canvas tenancy exposing LTI 1.3 and OIDC discovery, and access.adelaide.edu.au is a PeopleSoft student system behind Okta SSO. This profile is deliberately thin because the footprint is thin.
 
-This profile is deliberately thin, because the footprint is thin. A full crawl of the 10,326-URL adelaide.edu.au sitemap on 2026-08-30 returned no developer portal, no API reference, no open-data portal, and no OpenAPI under any path. `llms.txt` and `.well-known/security.txt` both 404.
+**Areas:** University · Higher Education · Education · Australia · Group of Eight · Research Repository · Research Data · Library · OAI-PMH · DSpace · Identity Federation · Shibboleth
 
-- APIs.json: https://raw.githubusercontent.com/api-evangelist/university-of-adelaide/refs/heads/main/apis.yml
-- Run with Naftiko: https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=university-of-adelaide-api-evangelist&utm_content=repo
+## University of Adelaide on APIs.io
 
-## Type
+Everything profiled for University of Adelaide is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/university-of-adelaide/](https://apis.io/providers/university-of-adelaide/)** — or go straight to one of the APIs or properties below.
 
-- university / Public Research University / Index / Consumer / Public
+### APIs (5)
 
-## Tags
+- [Adelaide Research & Scholarship REST API](https://apis.io/apis/university-of-adelaide/dspace-rest/) — DSpace 7.6.1 HAL/JSON REST API for the University of Adelaide institutional repository "Adelaide Research & Scholarship", exposing communities, collections,…
+- [Adelaide Research & Scholarship OAI-PMH](https://apis.io/apis/university-of-adelaide/dspace-oai-pmh/) — OAI-PMH 2.0 metadata harvesting endpoint for the "Adelaide Research & Scholarship" repository, on the same institution-operated host. Confirmed live…
+- [Adelaide University Shibboleth Identity Provider (SAML 2.0)](https://apis.io/apis/university-of-adelaide/saml-idp/) — The institution's own Shibboleth SAML 2.0 Identity Provider, serving machine-readable EntityDescriptor metadata from its own host. Confirmed live…
+- [Adelaide Figshare Research Data Repository — Adelaide tenancy](https://apis.io/apis/university-of-adelaide/figshare-tenancy/) — The University's research-data repository runs on Figshare at the institution-specific host adelaide.figshare.com. The DATA, the DOIs and the curation are…
+- [MyUni Learning Management System (Instructure Canvas) — Adelaide tenancy](https://apis.io/apis/university-of-adelaide/myuni-canvas/) — The University's LMS runs on Instructure Canvas at myuni.adelaide.edu.au. The tenancy, roster and course content are Adelaide's; the API contract is…
 
-University, Higher Education, Education, Australia, Group of Eight, Research Repository, Research Data, Library, OAI-PMH, DSpace, Identity Federation, Shibboleth, Metadata, Course Catalog
+### Published properties
 
-## Surfaces, by who actually operates them
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-A university is a federation of buyers, not a producer. Every surface below carries an operator.
+#### Vocabulary (1)
 
-**Institution-operated** — Adelaide's own host, Adelaide's own deployment:
+The provider's domain terms, defined.
 
-- **Adelaide Research & Scholarship REST API** — DSpace 7.6.1 HAL/JSON, keyless read access. Base: https://digital.library.adelaide.edu.au/server/api · Contract: https://github.com/DSpace/RestContract
-- **Adelaide Research & Scholarship OAI-PMH** — OAI-PMH 2.0, Handle prefix 2440, earliest datestamp 2002. Base: https://digital.library.adelaide.edu.au/server/oai/request
-- **Shibboleth Identity Provider (SAML 2.0)** — entityID `urn:mace:federation.org.au:testfed:au-idp.adelaide.edu.au`, scope `adelaide.edu.au`, registered in the Australian Access Federation. Metadata: https://au-idp.adelaide.edu.au/idp/shibboleth
+- [University of Adelaide Research Data Vocabulary](https://apis.io/vocabularies/university-of-adelaide/university-of-adelaide-vocabulary/)
 
-**Tenant** — Adelaide's data on someone else's contract. The vendor's specification is deliberately *not* stored in this repository:
+#### Examples (1)
 
-- **Adelaide Figshare** — research data on Figshare. https://adelaide.figshare.com/ (answers 202 to this network: a bot challenge, not a dead host)
-- **MyUni** — Instructure Canvas LMS. Public LTI 1.3 JWKS and OIDC discovery; REST API returns 401. https://myuni.adelaide.edu.au/
+Example requests and responses.
 
-## Domain standards (Kin Score `education` regime)
+- [University Of Adelaide Dspace Rest Root Response](https://apis.io/examples/university-of-adelaide/university-of-adelaide-dspace-rest-root-response/)
 
-Probed, not claimed. See [conformance/university-of-adelaide-education-standards.yml](conformance/university-of-adelaide-education-standards.yml).
+#### Security (2)
 
-| Standard | Operator | Evidence |
-|---|---|---|
-| `oai-pmh` 2.0 | institution | Identify → 200 |
-| `saml` 2.0 | institution | IdP metadata → 200 |
-| `shibboleth` | institution | `shibmd:Scope adelaide.edu.au` |
-| `datacite` | institution | DataCite provider `adelaide`, one repository client |
-| `lti` 1.3 | tenant | MyUni LTI JWKS → 200, AGS line items → 401 |
+Authentication, trust centre, and vulnerability disclosure.
 
-`scim`, `oneroster`, `caliper`, `qti` and `ed-fi` were probed and not found. `orcid` and `crossref` are registered as DSpace external sources but the live ORCID query failed, so neither is claimed.
+- [University Of Adelaide Authentication](https://apis.io/security/university-of-adelaide/university-of-adelaide-authentication/)
+- [University Of Adelaide Domain Security](https://apis.io/security/university-of-adelaide/university-of-adelaide-domain-security/)
 
-## Artifacts
+#### Plans and pricing (1)
 
-- Conformance: [conformance/university-of-adelaide-education-standards.yml](conformance/university-of-adelaide-education-standards.yml)
-- Authentication: [authentication/university-of-adelaide-authentication.yml](authentication/university-of-adelaide-authentication.yml)
-- Vocabulary: [vocabulary/university-of-adelaide-vocabulary.yml](vocabulary/university-of-adelaide-vocabulary.yml)
-- Examples (real probed responses): [examples/university-of-adelaide-examples.yml](examples/university-of-adelaide-examples.yml)
-- Plans: [plans/university-of-adelaide-plans-pricing.yml](plans/university-of-adelaide-plans-pricing.yml)
-- Rate Limits: [rate-limits/university-of-adelaide-rate-limits.yml](rate-limits/university-of-adelaide-rate-limits.yml)
-- FinOps: [finops/university-of-adelaide-finops.yml](finops/university-of-adelaide-finops.yml)
-- Domain Security: [security/university-of-adelaide-domain-security.yml](security/university-of-adelaide-domain-security.yml)
+Published plans, tiers and prices.
 
-## Timestamps
+- [University Of Adelaide Plans Pricing](https://apis.io/plans/university-of-adelaide/university-of-adelaide-plans-pricing/)
 
-- Created: 2026-06-03
-- Modified: 2026-08-30
+#### Rate limits (1)
 
-## Common Properties
+Published request limits.
 
-- Website: https://adelaide.edu.au/
-- GitHub Organization: https://github.com/universityofadelaide
-- LinkedIn: https://au.linkedin.com/school/uniofadelaide/
-- Research Repository: https://digital.library.adelaide.edu.au/
-- Library: https://adelaide.edu.au/library/
-- Course Catalog: https://adelaide.edu.au/study/
-- Identity Federation: https://au-idp.adelaide.edu.au/idp/shibboleth
-- AI Policy: https://adelaide.edu.au/about/policies/academic-integrity-policy/
-- AI Tooling (ChatMate): https://app.chatmate.adelaide.edu.au/
-- Authentication (CAS SSO): https://login.adelaide.edu.au/cas/login
-- Privacy Policy: https://adelaide.edu.au/about/policies/privacy-policy/
-- Review: [review.yml](review.yml)
+- [University Of Adelaide Rate Limits](https://apis.io/rate-limits/university-of-adelaide/university-of-adelaide-rate-limits/)
 
-## Correction notice — 2026-08-30
+#### FinOps (1)
 
-The June 2026 profile of this institution credited it with ten OpenAPI definitions, eleven `apis[]` entries (altmetric, articles, authors, collections, institutions, oauth, other, profiles, projects, symplectic), twenty Postman/OpenCollection files, two JSON Schemas, two JSON Structures, two examples, two Spectral rulesets, a vocabulary, a JSON-LD context, an authentication profile, an OAuth scope list, an agentic-access profile covering 157 operations, and a capability map.
+What the API costs to run, by operation.
 
-Every one of those artifacts derived from a **single Figshare contract** — `info.title: Figshare API`, contact "Figshare Support", `servers[0]: https://api.figshare.com/v2` — that eleven other institutions in this catalog shipped verbatim as their own. It is Figshare's engineering, not Adelaide's. **47 files were removed.** The Figshare *deployment* is kept, correctly labelled as a tenant relationship, because a tenancy is a real institutional fact.
+- [University Of Adelaide Finops](https://apis.io/finops/university-of-adelaide/university-of-adelaide-finops/)
 
-The corrected profile scores lower than the one it replaces. That is the correction working.
+## Where to find this API
 
-## Notes
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-Every interface listed was probed directly on 2026-08-30 and the status codes are recorded in `x-coverage.evidence` in [apis.yml](apis.yml). Three things exist but are not credited as surfaces, and are named rather than assumed: the Research GitLab at `git.adelaide.edu.au` is registered in the Australian Access Federation and resolves to a campus address but does not answer on 443 from this network; the research-computing and HPC pages now redirect into a ServiceNow employee portal that returns a 1,447-byte JavaScript shell; and `adelaide.figshare.com` returns a bot challenge. No endpoints were fabricated.
+- [Website](https://adelaide.edu.au/)
+- [Blog](https://adelaide.edu.au/about/news/)
+- [Terms of service](https://adelaide.edu.au/about/disclaimer/)
+- [Privacy policy](https://adelaide.edu.au/about/policies/privacy-policy/)
+- [GitHub](https://github.com/universityofadelaide)
 
-## Maintainers
+## API Evangelist rating
 
-- Kin Lane — kin@apievangelist.com
+**Kin Score 22.2** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 71.4 |
+| Contract quality | 10.5 |
+| Contract governance | 3.8 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 26.3 |
+
+**Agent readiness 4.4** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Education & Research
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/university-of-adelaide/](https://apis.io/providers/university-of-adelaide/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for University of Adelaide: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/university-of-adelaide/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
